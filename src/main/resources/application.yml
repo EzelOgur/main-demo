@@ -1,0 +1,4 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://appuser:user@cluster0.9geo4.mongodb.net/appi?retryWrites=true&w=majority

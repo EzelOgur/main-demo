@@ -1,0 +1,78 @@
+<h2 align="center"> Free Match! User Registration </h2>
+<mat-horizontal-stepper [linear]="isLinear" #stepper labelPosition="bottom">
+
+  <mat-step>
+    <ng-template matStepLabel>Ticket</ng-template>
+    <div>
+      <img alt="logo" src="assets/1234.jpeg">
+    </div>
+    <div>
+      <button mat-raised-button color="primary" style="width: 200px;" matStepperNext>Next</button>
+    </div>
+  </mat-step>
+
+  <mat-step [stepControl]="formNameGroup" label="Country" >
+    <div style="padding-top: 3%;">
+        <form [formGroup]="formNameGroup">
+            <!-- <ng-template matStepLabel>Name</ng-template> -->
+            <div class="example-form">
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Your Country" required formControlName="userName">
+                <mat-error *ngIf="formNameGroup.controls['userName'].hasError('required')">
+                        Country is required!
+                    </mat-error>
+              </mat-form-field>
+            </div>
+            <br/>
+            <button mat-raised-button color="primary" matStepperNext>Next</button>
+        </form>
+    </div>
+  </mat-step>
+
+  <mat-step [stepControl]="formPasswordGroup" label="Budget" >
+    <div style="padding-top: 3%;">
+        <form [formGroup]="formPasswordGroup">
+            <!-- <ng-template matStepLabel>Name</ng-template> -->
+            <div class="example-form">
+              <mat-form-field class="example-full-width">
+                <input type="number" matInput placeholder="What is your budget (EUR)" required formControlName="passWord">
+                <mat-error *ngIf="formPasswordGroup.controls['passWord'].hasError('required')">
+                        Password is required!
+                    </mat-error>
+              </mat-form-field>
+            </div>
+            <br/>
+            <button mat-raised-button color="primary" matStepperNext>Next</button>
+        </form>
+    </div>
+  </mat-step>
+  <mat-step [stepControl]="formPhoneGroup" label="Mobile" >
+    <div style="padding-top: 3%;">
+        <form [formGroup]="formPhoneGroup">
+            <!-- <ng-template matStepLabel>Name</ng-template> -->
+            <div class="example-form">
+              <mat-form-field class="example-full-width">
+                <input type="tel" matInput placeholder="Mobile" required formControlName="mobile">
+                <mat-error *ngIf="formPhoneGroup.controls['mobile'].hasError('required')">
+                        Mobile is required!
+                    </mat-error>
+                 <mat-error *ngIf="formPhoneGroup.controls['mobile'].hasError('min')">
+                        Mobile No is Wrong!
+                    </mat-error>
+              </mat-form-field>
+            </div>
+            <br/>
+            <button mat-raised-button color="primary" matStepperNext>Next</button>
+        </form>
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Verification</ng-template>
+    <h3 style="text-align: center;">Continue Verification via:</h3>
+    <div>
+        <button mat-raised-button color="primary" (click)="ridirect()">Facebook</button> 
+    </div>
+  </mat-step>
+
+
+</mat-horizontal-stepper>
